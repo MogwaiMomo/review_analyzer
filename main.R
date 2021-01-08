@@ -3,6 +3,7 @@ options(stringsAsFactors = F)
 # libraries for inputting data
 library(httr)
 library(jsonlite)
+library(rlist)
 
 # libraries for tidying
 library(magrittr)
@@ -22,6 +23,12 @@ library(topicmodels)
 library(tm)
 library(hunspell)
 
+r <- GET("https://app.reviewapi.io/api/v1/reviews?apikey=48872790-503d-11eb-a971-65901c93bc91&url=https%3A%2F%2Fwww.capterra.com%2Fp%2F140650%2FRecruitee%2Freviews&amount=25")
 
-r <- GET("https://app.reviewapi.io/api/v1/reviews?apikey=48872790-503d-11eb-a971-65901c93bc91&url=https%3A%2F%2Fwww.amazon.com%2FTUSHY-Classic-Bidet-Toilet-Attachment%2Fdp%2FB07B8Y327H&amount=30")
+# success! the scraper works (at least for the example URL ...)
 
+# Next goal - convert response data to a tibble:
+# https://datascienceplus.com/accessing-web-data-json-in-r-using-httr/
+
+r.list <- fromJSON(httr::content(r, as = "text"))
+reviews_data <- r.list$reviews
