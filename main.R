@@ -32,3 +32,26 @@ r <- GET("https://app.reviewapi.io/api/v1/reviews?apikey=48872790-503d-11eb-a971
 
 r.list <- fromJSON(httr::content(r, as = "text"))
 reviews_data <- r.list$reviews
+
+# Step 1: explore the included data
+str(reviews_data)
+
+# change format 
+reviews_data$timestamp <- as.Date(reviews_data$timestamp)
+reviews_data$platform_specific$user_job_title <- as.factor(reviews_data$platform_specific$user_job_title)
+reviews_data$platform_specific$user_company_name <- as.factor(reviews_data$platform_specific$user_company_name)
+reviews_data$platform_specific$user_industry <- as.factor(reviews_data$platform_specific$user_industry)
+
+# add element_id based on rowid
+reviews_data <- create_id_var(reviews_data)
+reviews_data$platform_specific <- create_id_var(reviews_data$platform_specific)
+
+# flatten the data frame
+df <- reviews_data$platform_specific
+reviews_data %>%
+  select(-platform_specific) -> df2
+data <- inner_join(df, df2, by = "element_id")
+
+source("scripts/explore_trends.R")
+
+quants <- isolate_quants(data)
