@@ -36,6 +36,8 @@ reviews_data <- r.list$reviews
 
 platform_specific <- reviews_data$platform_specific
 
+source("scripts/explore_trends.R")
+
 # Step 1: explore the included data
 str(reviews_data)
 
@@ -54,8 +56,13 @@ df <- reviews_data$platform_specific
 reviews_data %>%
   select(-platform_specific) -> df2
 data <- inner_join(df, df2, by = "element_id")
-
-source("scripts/explore_trends.R")
+data <- as_tibble(data)
+data %>%
+  select(-c(text, title)) -> data
+  
 
 quants <- isolate_quants(data)
+
+
+
 
