@@ -32,3 +32,5 @@ r <- GET("https://app.reviewapi.io/api/v1/reviews?apikey=48872790-503d-11eb-a971
 
 r.list <- fromJSON(httr::content(r, as = "text"))
 reviews_data <- r.list$reviews
+
+platform_specific <- reviews_data$platform_specific
