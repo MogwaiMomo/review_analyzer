@@ -37,6 +37,9 @@ reviews_data <- r.list$reviews
 platform_specific <- reviews_data$platform_specific
 
 source("scripts/explore_trends.R")
+source("scripts/create_wordcloud.R")
+source("scripts/tidy_tokens.R")
+source("scripts/sentiment_analysis.R")
 
 # Step 1: explore the included data
 str(reviews_data)
@@ -62,7 +65,13 @@ data %>%
   
 
 quants <- isolate_quants(data)
+quals <- isolate_quals(data)
+texts <- isolate_texts(data)
+
+filename <- "output/corr_plots.png"
+plot_quants(filename, quants)
+
+# skip boxplots - no real categories to use
 
 
-
-
+# 
