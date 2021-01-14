@@ -46,11 +46,15 @@ get_sentiments_words <- function(text_df, omit_words, lexicon, emotion){
 
 document_level_sa <- function(df) {
   
-  # create an element_id col based on row name
-  rowid_to_column(df) %>%
-    # rename rowid col to element_id
-    rename(element_id = rowid) -> df
-    
+  # make element_id creation optional:
+  if (!("element_id" %in% names(texts))) {
+      
+    # create an element_id col based on row name
+    rowid_to_column(df) %>%
+      # rename rowid col to element_id
+      rename(element_id = rowid) -> df
+  }
+
   # calculate sentiment for each tweet 
   df %>% 
     get_sentences() %>%

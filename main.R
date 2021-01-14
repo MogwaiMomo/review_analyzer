@@ -22,6 +22,7 @@ library(gridExtra)
 library(topicmodels)
 library(tm)
 library(hunspell)
+library(textcat)
 
 r <- GET("https://app.reviewapi.io/api/v1/reviews?apikey=48872790-503d-11eb-a971-65901c93bc91&url=https%3A%2F%2Fwww.capterra.com%2Fp%2F140650%2FRecruitee%2Freviews&amount=25")
 
@@ -66,12 +67,22 @@ data %>%
 
 quants <- isolate_quants(data)
 quals <- isolate_quals(data)
-texts <- isolate_texts(data)
+
+texts <- isolate_texts(data) %>%
+  select(-c(platform, user_name)) %>%   # remove useless vars
+  mutate(language = textcat(pros)) %>% # identify languages
+  filter(language == "english")  %>% # filter only eng documents 
+  pivot_longer(-c(element_id, language), # tidy
+               names_to = "pro_con", 
+               values_to = "document")
 
 filename <- "output/corr_plots.png"
 plot_quants(filename, quants)
 
-# skip boxplots - no real categories to use
+# skip boxplot analysis - no real categories to use
 
+# sentiment analysis with sentimentR
+sent_df <- document_level_sa(texts)
 
-# 
+  
+
