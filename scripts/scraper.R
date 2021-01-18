@@ -37,6 +37,7 @@ review_data <- tibble::tibble(
     str_trim(side ="both")
 )
   
+fwrite(review_data, file="output/reviews.csv")
 
 
 
