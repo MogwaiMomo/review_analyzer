@@ -1,52 +1,69 @@
 library(rvest)
-# Work through this so you can scrape any review site
 
-# https://towardsdatascience.com/tidy-web-scraping-in-r-tutorial-and-resources-ac9f72b4fe47
+# starting iterator
+i <- 1
+# base df
+final_df <- data.frame()
 
-# Client page to try to scrape (trustpilot): 
+# cycle through pages
 
-url <- "https://ca.trustpilot.com/review/www.bitdefender.com"
-html <- read_html(url)
+while (i < 249) {
 
-body_nodes <- html %>%
-  html_node("body") %>%
-  html_children()
-
-reviews <- body_nodes %>%
-  xml2::xml_find_all(".//div[contains(@class, 'review-card  ')]")
-
-review_data <- tibble::tibble(
-  name = reviews %>% 
-    xml2::xml_find_first(".//div[contains(@class, 'consumer-information__name')]") %>%
-    rvest::html_text() %>%
-    str_trim(side ="both"),
+  # client page to try to scrape (trustpilot): 
+  url <- "https://ca.trustpilot.com/review/www.bitdefender.com?page=%s"
+  new_url <- sprintf(url, i)
   
-  num_reviews = reviews %>%
-    xml2::xml_find_first(".//div[contains(@class, 'consumer-information__review-count')]/span") %>%
-    rvest::html_text() %>%
-    str_replace_all("\\D+", "") %>%
-    str_trim(side ="both") %>%
-    as.numeric(),
+  html <- read_html(new_url)
   
-  rating = reviews %>%
-    xml2::xml_find_first(".//div[contains(@class, 'star-rating')]/img") %>%
-    rvest::html_attr('alt') %>%
-    str_replace_all("\\D+", "") %>%
-    str_trim(side ="both") %>%
-    as.numeric(),
+  body_nodes <- html %>%
+    html_node("body") %>%
+    html_children()
   
-  text = reviews %>%
-    xml2::xml_find_first(".//p[contains(@class, 'review-content__text')]") %>%
-    rvest::html_text() %>%
-    str_trim(side ="both")
-)
+  reviews <- body_nodes %>%
+    xml2::xml_find_all(".//div[contains(@class, 'review-card  ')]")
   
+  page_df <- tibble::tibble(
+    name = reviews %>% 
+      xml2::xml_find_first(".//div[contains(@class, 'consumer-information__name')]") %>%
+      rvest::html_text() %>%
+      str_trim(side ="both"),
+    
+    num_reviews = reviews %>%
+      xml2::xml_find_first(".//div[contains(@class, 'consumer-information__review-count')]/span") %>%
+      rvest::html_text() %>%
+      str_replace_all("\\D+", "") %>%
+      str_trim(side ="both") %>%
+      as.numeric(),
+    
+    rating = reviews %>%
+      xml2::xml_find_first(".//div[contains(@class, 'star-rating')]/img") %>%
+      rvest::html_attr('alt') %>%
+      str_replace_all("\\D+", "") %>%
+      str_trim(side ="both") %>%
+      as.numeric(),
+    
+    text = reviews %>%
+      xml2::xml_find_first(".//p[contains(@class, 'review-content__text')]") %>%
+      rvest::html_text() %>%
+      str_trim(side ="both")
+  )
+  
+  final_df <- rbind(final_df, page_df)
+  i <- i+1
+  
+}
+
+
+
+
+
+
 fwrite(review_data, file="output/reviews.csv")
 review_data <- fread("output/reviews.csv")
 
 # Next steps: 
 
-# clean and format what should be number vars
+# DONE - clean and format what should be number vars
 
 
 
