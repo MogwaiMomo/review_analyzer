@@ -54,32 +54,13 @@ while (i < 249) {
 }
 
 
-
-
-
-
-fwrite(review_data, file="output/reviews.csv")
+fwrite(final_df, file="output/bitdefender_reviews.csv")
 review_data <- fread("output/reviews.csv")
 
 # Next steps: 
 
 # DONE - clean and format what should be number vars
-
-
-
-# cycle through a set number of pages
-
-# break if max pages exceeded
+# DONE - cycle through a set number of pages
 
 # turn into function
-
-
-
-# Info to scrape:
-
-# name:           consumer-information__name
-# no. of reviews: consumer-information__review-count > span
-# rating:         rating.star-rating--medium > img alt (?)
-# review text:    review-content__body > p
-# CAN'T GET THIS ONE: timestamp:      review-content-header__dates > div > span > time
 
