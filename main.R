@@ -24,60 +24,65 @@ library(tm)
 library(hunspell)
 library(textcat)
 
-r <- GET("https://app.reviewapi.io/api/v1/reviews?apikey=48872790-503d-11eb-a971-65901c93bc91&url=https%3A%2F%2Fwww.capterra.com%2Fp%2F140650%2FRecruitee%2Freviews&amount=25")
-
-# success! the scraper works (at least for the example URL ...)
-
-# Next goal - convert response data to a tibble:
-# https://datascienceplus.com/accessing-web-data-json-in-r-using-httr/
-
-r.list <- fromJSON(httr::content(r, as = "text"))
-reviews_data <- r.list$reviews
-
-
-platform_specific <- reviews_data$platform_specific
 
 source("scripts/explore_trends.R")
 source("scripts/create_wordcloud.R")
 source("scripts/tidy_tokens.R")
 source("scripts/sentiment_analysis.R")
 
-# Step 1: explore the included data
-str(reviews_data)
 
-# change format 
-reviews_data$timestamp <- as.Date(reviews_data$timestamp)
-reviews_data$platform_specific$user_job_title <- as.factor(reviews_data$platform_specific$user_job_title)
-reviews_data$platform_specific$user_company_name <- as.factor(reviews_data$platform_specific$user_company_name)
-reviews_data$platform_specific$user_industry <- as.factor(reviews_data$platform_specific$user_industry)
+# Uncomment, edit & pull from reviewapi if need be
+# url <- "https://app.reviewapi.io/api/v1/reviews?apikey=48872790-503d-11eb-a971-65901c93bc91&url=https%3A%2F%2Fwww.capterra.com%2Fp%2F140650%2FRecruitee%2Freviews&amount=25"
+# r <- GET(url)
+# r.list <- fromJSON(httr::content(r, as = "text"))
+# data <- r.list$reviews
+
+
+# Uncomment, edit file & scrape review sites
+# source("scripts/scraper.R")
+
+
+
+# Load the data
+f <- "output/bitdefender_reviews.csv"
+data <- fread(f)
 
 # add element_id based on rowid
-reviews_data <- create_id_var(reviews_data)
-reviews_data$platform_specific <- create_id_var(reviews_data$platform_specific)
+data <- create_id_var(data)
 
-# flatten the data frame
-df <- reviews_data$platform_specific
-reviews_data %>%
-  select(-platform_specific) -> df2
-data <- inner_join(df, df2, by = "element_id")
-data <- as_tibble(data)
-data %>%
-  select(-c(text, title)) -> data
+# explore the included data
+str(data)
+
+# Uncomment, edit & change format, if needed
+
+# data$____ <-  as.Date(data$____)
+# data$____ <-  as.factor(review_data$____)
+# data$____ <-  as.numeric(review_data$____)
+# data$____ <-  as.character(review_data$____)
+
+# Uncomment, edit & flatten the data frame, if need be
+
+# df <- data$____
+# data %>%
+#   select(-____) -> df2
+# data <- inner_join(df, df2, by = "element_id")
+# data <- as_tibble(data)
+# data %>%
+#   select(-c(text, title)) -> data
   
 
 quants <- isolate_quants(data)
 quals <- isolate_quals(data)
+texts <- isolate_texts(data) 
 
-texts <- isolate_texts(data) %>%
-  select(-c(platform, user_name)) %>%   # remove useless vars
-  mutate(language = textcat(pros)) %>% # identify languages
-  filter(language == "english")  %>% # filter only eng documents 
-  pivot_longer(-c(element_id, language), # tidy
-               names_to = "pro_con", 
-               values_to = "document")
+
+tidy_texts <- texts %>%
+  mutate(language = textcat(text)) %>% # identify languages
+  filter(language == "english") %>% # filter only eng documents 
+  select(-language)
 
 filename <- "output/corr_plots.png"
-plot_quants(filename, quants)
+plot_quants(filename, quants, "element_id")
 
 # skip boxplot analysis - no real categories to use
 
