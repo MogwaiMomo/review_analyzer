@@ -86,8 +86,33 @@ plot_quants(filename, quants, "element_id")
 
 # skip boxplot analysis - no real categories to use
 
+# keep star rating before doing sent analysis
+texts <- inner_join(quants, texts) %>% 
+  select(-num_reviews)
+
 # sentiment analysis with sentimentR
-sent_df <- document_level_sa(texts)
+sent_df <- document_level_sa(texts) %>%
+  filter(word_count != 0)
+
+# remove duplicate entries
+sent_df <- subset(sent_df, !duplicated(
+  subset(sent_df, select = "text")))
+
+# Interesting question: how does topic diversity & substance change with word count? 
+
+# First: how is the word count distributed? 
+
+# before checking analysis, remove NA word-count reviews
+
+summary(sent_df) # Median is 43 words. 
+
+# Next: is there any relationship between word count, rating, and sentiment?
+
+df <- isolate_quants(sent_df) %>%
+  select(-c(element_id, sd))
+
+
+plot_quants("output/bitdefender_corrs.png",df)
 
   
 
