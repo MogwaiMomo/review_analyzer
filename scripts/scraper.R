@@ -7,10 +7,10 @@ final_df <- data.frame()
 
 # cycle through pages
 
-while (i < 249) {
+while (i < 39) {
 
   # client page to try to scrape (trustpilot): 
-  url <- "https://ca.trustpilot.com/review/www.bitdefender.com?page=%s"
+  url <- "https://www.trustpilot.com/review/www.plushcare.com?page=%s"
   new_url <- sprintf(url, i)
   
   html <- read_html(new_url)
@@ -54,13 +54,6 @@ while (i < 249) {
 }
 
 
-fwrite(final_df, file="output/bitdefender_reviews.csv")
-review_data <- fread("output/bitdefender_review.csv")
-
-# Next steps: 
-
-# DONE - clean and format what should be number vars
-# DONE - cycle through a set number of pages
-
-# turn into function
+fwrite(final_df, file="output/plushcare_reviews.csv")
+rm(final_df)
 

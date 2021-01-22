@@ -39,12 +39,12 @@ source("scripts/sentiment_analysis.R")
 
 
 # Uncomment, edit file & scrape review sites
-# source("scripts/scraper.R")
+source("scripts/scraper.R")
 
 
 
 # Load the data
-f <- "output/bitdefender_reviews.csv"
+f <- "output/plushcare_reviews.csv"
 data <- fread(f)
 
 # add element_id based on rowid
@@ -56,8 +56,8 @@ str(data)
 # Uncomment, edit & change format, if needed
 
 # data$____ <-  as.Date(data$____)
-# data$____ <-  as.factor(review_data$____)
-# data$____ <-  as.numeric(review_data$____)
+# data$____ <-  as.factor(data$____)
+data$rating <-  as.numeric(data$rating)
 # data$____ <-  as.character(review_data$____)
 
 # Uncomment, edit & flatten the data frame, if need be
@@ -75,14 +75,13 @@ quants <- isolate_quants(data)
 quals <- isolate_quals(data)
 texts <- isolate_texts(data) 
 
+texts %>%
+  mutate(language = textcat(text)) -> check_lang_df
 
-tidy_texts <- texts %>%
-  mutate(language = textcat(text)) %>% # identify languages
-  filter(language == "english") %>% # filter only eng documents 
+# if need be, check for other languages
+texts <- check_lang_df %>% 
+  filter(language == "english") %>% # if need be, filter only eng documents 
   select(-language)
-
-filename <- "output/corr_plots.png"
-plot_quants(filename, quants, "element_id")
 
 # skip boxplot analysis - no real categories to use
 
@@ -110,9 +109,14 @@ summary(sent_df) # Median is 43 words.
 
 df <- isolate_quants(sent_df) %>%
   select(-c(element_id, sd))
+plot_quants("output/plushcare_corrs.png",df)
 
+by_rating <- sent_df %>%
+  group_by(rating) %>%
+  summarise(n = n(), 
+            mean_wc = mean(word_count))
 
-plot_quants("output/bitdefender_corrs.png",df)
+five_star_df <- filter(sent_df, rating == 5)
 
-  
-
+fwrite(five_star_df, "output/plushcare_5_stars.csv")
+fwrite(sent_df, "output/plushcare_sa.csv")
