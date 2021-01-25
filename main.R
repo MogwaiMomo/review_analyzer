@@ -111,8 +111,28 @@ summary(sent_df) # Median is 43 words.
 df <- isolate_quants(sent_df) %>%
   select(-c(element_id, sd))
 
-
 plot_quants("output/bitdefender_corrs.png",df)
 
   
+# It *looks* like there could be a relation between 
 
+
+# 2) sent (continuous) ~  word count (continuous) + 
+                        # rating (ordinal categorical)   
+  
+  # Work through process from ISL pp. 117 ("The Marketing Plan"):
+
+  # 1. Is at least one of the predictors useful in predicting the response?
+
+
+      
+
+  # 2. Do all the predictors help to explain Y , or is only a subset of the predictors useful?
+  
+  # 3. How well does the model fit the data?
+  
+  # 4. Given a set of predictor values, what response value should we predict,
+and how accurate is our prediction?
+
+# 3) rating (discrete ordinal) ~ word count (continuous) 
+  # test: classification - K nearest neighbour
