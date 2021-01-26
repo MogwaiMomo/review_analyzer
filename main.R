@@ -86,8 +86,7 @@ texts <- check_lang_df %>%
 # skip boxplot analysis - no real categories to use
 
 # keep star rating before doing sent analysis
-texts <- inner_join(quants, texts) %>% 
-  select(-num_reviews)
+texts <- inner_join(quals, texts)
 
 # sentiment analysis with sentimentR
 sent_df <- document_level_sa(texts) %>%
@@ -105,18 +104,31 @@ sent_df <- subset(sent_df, !duplicated(
 
 summary(sent_df) # Median is 43 words. 
 
+fwrite(five_star_df, "output/plushcare_5_stars.csv")
+fwrite(sent_df, "output/plushcare_sa.csv")
+
 # Next: is there any relationship between word count, rating, and sentiment?
 
 df <- isolate_quants(sent_df) %>%
   select(-c(element_id, sd))
 plot_quants("output/plushcare_corrs.png",df)
 
-by_rating <- sent_df %>%
-  group_by(rating) %>%
-  summarise(n = n(), 
-            mean_wc = mean(word_count))
+# Hm, seems to be some relationships, possibly. 
 
-five_star_df <- filter(sent_df, rating == 5)
+# can rating & word count predict sentiment? (use linear regression with dummy variables)
 
-fwrite(five_star_df, "output/plushcare_5_stars.csv")
-fwrite(sent_df, "output/plushcare_sa.csv")
+# first change rating to factor
+data$rating <-  as.factor(data$rating)
+
+lm.fit <- lm(ave_sentiment ~ word_count + rating, data = sent_df)
+summary(lm.fit)
+
+par(mfrow=c(2,2)) 
+plot(lm.fit)
+
+
+
+
+
+
+
