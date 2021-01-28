@@ -128,6 +128,12 @@ quantile4_df <- sent_df %>%
 quantile4_df <- quantile4_df[,c(1,3,2)] %>%
   fwrite("output/plushcare_q4.tsv", sep = "\t")
 
+
+
+# NEXT STOP: try unsupervised text clustering
+
+# https://medium.com/@rohithramesh1991/unsupervised-text-clustering-using-natural-language-processing-nlp-1a8bc18b048d
+
 fwrite(quantile1_df,  "output/plushcare_sa.csv")
 
 # Next: is there any relationship between word count, rating, and sentiment?
