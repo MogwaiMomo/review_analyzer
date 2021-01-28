@@ -124,7 +124,7 @@ plot_quants("output/bitdefender_corrs.png",df)
 
   # 1. Is at least one of the predictors useful in predicting the response?
 
-
+git 
       
 
   # 2. Do all the predictors help to explain Y , or is only a subset of the predictors useful?
