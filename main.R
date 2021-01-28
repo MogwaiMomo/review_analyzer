@@ -31,17 +31,9 @@ source("scripts/tidy_tokens.R")
 source("scripts/sentiment_analysis.R")
 
 
-# Uncomment, edit & pull from reviewapi if need be
-# url <- "https://app.reviewapi.io/api/v1/reviews?apikey=48872790-503d-11eb-a971-65901c93bc91&url=https%3A%2F%2Fwww.capterra.com%2Fp%2F140650%2FRecruitee%2Freviews&amount=25"
-# r <- GET(url)
-# r.list <- fromJSON(httr::content(r, as = "text"))
-# data <- r.list$reviews
-
 
 # Uncomment, edit file & scrape review sites
 source("scripts/scraper.R")
-
-
 
 # Load the data
 f <- "output/plushcare_reviews.csv"
@@ -90,7 +82,7 @@ texts <- inner_join(quals, texts)
 
 # sentiment analysis with sentimentR
 sent_df <- document_level_sa(texts) %>%
-  filter(word_count != 0)
+  filter(word_count != 0) # remove low-word count reviews (uninformative, likely high % of fakes)
 
 # remove duplicate entries
 sent_df <- subset(sent_df, !duplicated(
@@ -100,12 +92,43 @@ sent_df <- subset(sent_df, !duplicated(
 
 # First: how is the word count distributed? 
 
-# before checking analysis, remove NA word-count reviews
+# before checking analysis, remove low word-count reviews
 
-summary(sent_df) # Median is 43 words. 
+summary(sent_df) 
 
-fwrite(five_star_df, "output/plushcare_5_stars.csv")
-fwrite(sent_df, "output/plushcare_sa.csv")
+# Median is 43 words. Note that the variation in word count of the first ,second and 3rd quantiles are pretty equal, and then the variation of the last quantile is super high, which would contribute to high skewing on the right. 
+
+# let's split up the sample into separate quantile_dfs and run topic analysis on them ...
+
+quantile1_df <- sent_df %>%
+  filter(word_count < 15) %>%
+  select("doc ID" = element_id, text) %>%
+  mutate(label = NA)
+quantile1_df <- quantile1_df[,c(1,3,2)] %>%
+  fwrite("output/plushcare_q1.csv")
+
+quantile2_df <- sent_df %>%
+  filter(word_count >= 15 & word_count < 31) %>%
+  select("doc ID" = element_id, text) %>%
+  mutate(label = NA)
+quantile2_df <- quantile2_df[,c(1,3,2)] %>%
+  fwrite("output/plushcare_q2.csv")
+
+quantile3_df <- sent_df %>%
+  filter(word_count >= 31 & word_count < 61) %>%
+  select("doc ID" = element_id, text) %>%
+  mutate(label = NA)
+quantile1_df <- quantile3_df[,c(1,3,2)] %>%
+  fwrite("output/plushcare_q3.csv")
+
+quantile4_df <- sent_df %>%
+  filter(word_count >= 61)  %>%
+  select("doc ID" = element_id, text) %>%
+  mutate(label = NA)
+quantile4_df <- quantile4_df[,c(1,3,2)] %>%
+  fwrite("output/plushcare_q4.tsv", sep = "\t")
+
+fwrite(quantile1_df,  "output/plushcare_sa.csv")
 
 # Next: is there any relationship between word count, rating, and sentiment?
 
@@ -146,10 +169,19 @@ run_residual_plots <- function(fit_var, output_file) {
 log.lm.fit <- lm(ave_sentiment ~ log(word_count) + rating, 
                  data = sent_df)
 summary(log.lm.fit)
-run_residual_plots(log.lm.fit, "plushcare_res.png")
+run_residual_plots(log.lm.fit, "output/plushcare_res.png")
 
 # need to omit rows with ave_sentiment = 0 before doing a log transform on it. (How many are there?)
 
+sent_df_no_zeros <- sent_df %>%
+  filter(ave_sentiment != 0)
+
+# log-transform both predictor and response this time
+
+log.lm.fit <- lm(ave_sentiment ~ log(word_count) + rating, 
+                 data = sent_df)
+summary(log.lm.fit)
+run_residual_plots(log.lm.fit, "output/plushcare_res.png")
 
 # Plot 2: Normal Q-Q Plot
 # If things generally follow a straight line with higher density in the middle, that's good. you may see outliers that have high leverage. This is comparing the distribution of your residuals (which should be normal) to the residuals of a theoretical (normal sample). S-shaped curves denote extreme values/higher than normal variance, and concave/convex curves denote skewed distributions. 
