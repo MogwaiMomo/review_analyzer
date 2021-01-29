@@ -57,10 +57,5 @@ while (i < 249) {
 fwrite(final_df, file="output/bitdefender_reviews.csv")
 review_data <- fread("output/bitdefender_review.csv")
 
-# Next steps: 
 
-# DONE - clean and format what should be number vars
-# DONE - cycle through a set number of pages
-
-# turn into function
 
