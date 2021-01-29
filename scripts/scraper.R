@@ -1,6 +1,6 @@
 library(rvest)
 
-# client page to try to scrape (trustpilot): 
+# client page to try to scrape 
 url <- "https://www.udacity.com/courses/all"
 html <- read_html(url)
 
