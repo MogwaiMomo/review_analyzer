@@ -18,7 +18,7 @@ my_hunspell_stem <- function(word) {
 }
 vec_hunspell_stem <- Vectorize(my_hunspell_stem, "word")
 
-# Clean/preprocess tweets 
+# Clean/preprocess texts 
 texts %>%
   mutate(text = str_replace_all(text, 
                                 pattern=regex("(www|https?[^\\s]+)"),
@@ -33,10 +33,10 @@ texts %>%
   rename(document = element_id, term = word, count = n)  -> texts_td
 
 # save to file 
-save_as_csv(texts_td, file_name="data/tidy_tweets.csv")
+save_as_csv(texts_td, file_name="data/tidy_texts.csv")
 
 # read back in from file
-texts_td <- fread("data/tidy_tweets.csv", na.strings = c("",NA))
+texts_td <- fread("data/tidy_texts.csv", na.strings = c("",NA))
 
  
 # Step 1b: create TDM using the cast function
@@ -51,21 +51,21 @@ texts_lda <- LDA(texts_dtm, k = 3, control = list(seed = 1234))
 texts_topics <- tidy(texts_lda, matrix = "beta")
 
 # Sidebar analysis: what are the top 10 most frequent terms per topic? 
-texts_top_terms_per_topic <- texts_topics %>%
-  group_by(topic) %>%
-  top_n(10, beta) %>%
-  ungroup() %>%
-  arrange(topic, -beta)
+# texts_top_terms_per_topic <- texts_topics %>%
+#   group_by(topic) %>%
+#   top_n(10, beta) %>%
+#   ungroup() %>%
+#   arrange(topic, -beta)
 
 # graph it & export
-texts_top_terms_per_topic %>%
-  mutate(term = reorder_within(term, beta, topic)) %>% 
-  ggplot(aes(beta, term, fill = factor(topic))) +
-  geom_col(show.legend = F) +
-  facet_wrap(~ topic, scales = "free" ) + 
-  scale_y_reordered() # removes the ____ and topic number from y-axis
+# texts_top_terms_per_topic %>%
+#   mutate(term = reorder_within(term, beta, topic)) %>% 
+#   ggplot(aes(beta, term, fill = factor(topic))) +
+#   geom_col(show.legend = F) +
+#   facet_wrap(~ topic, scales = "free" ) + 
+#   scale_y_reordered() # removes the ____ and topic number from y-axis
 
-ggsave("output/top_terms_per_topic.png")
+# ggsave("output/top_terms_per_topic.png")
 
 # conclusion: this method — like absolute word frequencies — kind of sucks even with cleaned data, because there's so much overlap in common terms between topics. 
 
