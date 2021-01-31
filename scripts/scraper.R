@@ -14,7 +14,7 @@ cards <- body_nodes %>%
 page_df <- tibble::tibble(
   
   product_name <- cards %>% 
-    xml2::xml_find_first(".//h2[contains(@class, 'card__title__nd-name')]") %>%
+    xml_find_first(".//h2") %>%
     rvest::html_text() %>%
     str_trim(side ="both"),
 
