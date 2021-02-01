@@ -2,63 +2,77 @@ library(rvest)
 
 
 #### PLUSHCARE ####
+num_reviews <- 750
+revs_per_page <- 20
+base_url <- "https://www.trustpilot.com/review/www.plushcare.com?page=%s"
+company <- "plushcare"
 
-# starting iterator
-i <- 1
-# base df
-final_df <- data.frame()
-
-# cycle through pages
-
-while (i < 39) {
-
-  # client page to try to scrape (trustpilot): 
-  url <- "https://www.trustpilot.com/review/www.plushcare.com?page=%s"
-  new_url <- sprintf(url, i)
+# create scraping function
+scrape_pages <- function(num_reviews, 
+                         revs_per_page, 
+                         url, company) {
+  # base output df
+  final_df <- data.frame()
   
-  html <- read_html(new_url)
+  num_reviews <- as.numeric(num_reviews)
+  revs_per_page <- as.numeric(revs_per_page)
+ 
+  # start and end urls
+  start_page <- 1
+  end_page <- ceiling(num_reviews/revs_per_page)
   
-  body_nodes <- html %>%
-    html_node("body") %>%
-    html_children()
-  
-  reviews <- body_nodes %>%
-    xml2::xml_find_all(".//div[contains(@class, 'review-card  ')]")
-  
-  page_df <- tibble::tibble(
-    name = reviews %>% 
-      xml2::xml_find_first(".//div[contains(@class, 'consumer-information__name')]") %>%
-      rvest::html_text() %>%
-      str_trim(side ="both"),
+  # scrape target items from every url
+  for(i in seq(from=start_page, to=end_page, by=1)){
     
-    num_reviews = reviews %>%
-      xml2::xml_find_first(".//div[contains(@class, 'consumer-information__review-count')]/span") %>%
-      rvest::html_text() %>%
-      str_replace_all("\\D+", "") %>%
-      str_trim(side ="both") %>%
-      as.numeric(),
+    new_url <- sprintf(url, i)
+    html <- read_html(new_url)
     
-    rating = reviews %>%
-      xml2::xml_find_first(".//div[contains(@class, 'star-rating')]/img") %>%
-      rvest::html_attr('alt') %>%
-      str_replace_all("\\D+", "") %>%
-      str_trim(side ="both") %>%
-      as.numeric(),
+    body_nodes <- html %>%
+      html_node("body") %>%
+      html_children()
     
-    text = reviews %>%
-      xml2::xml_find_first(".//p[contains(@class, 'review-content__text')]") %>%
-      rvest::html_text() %>%
-      str_trim(side ="both")
-  )
+    reviews <- body_nodes %>%
+      xml2::xml_find_all(".//div[contains(@class, 'review-card  ')]")
+    
+    page_df <- tibble::tibble(
+      name = reviews %>% 
+        xml2::xml_find_first(".//div[contains(@class, 'consumer-information__name')]") %>%
+        rvest::html_text() %>%
+        str_trim(side ="both"),
+      
+      num_reviews = reviews %>%
+        xml2::xml_find_first(".//div[contains(@class, 'consumer-information__review-count')]/span") %>%
+        rvest::html_text() %>%
+        str_replace_all("\\D+", "") %>%
+        str_trim(side ="both") %>%
+        as.numeric(),
+      
+      rating = reviews %>%
+        xml2::xml_find_first(".//div[contains(@class, 'star-rating')]/img") %>%
+        rvest::html_attr('alt') %>%
+        str_replace_all("\\D+", "") %>%
+        str_trim(side ="both") %>%
+        as.numeric(),
+      
+      text = reviews %>%
+        xml2::xml_find_first(".//p[contains(@class, 'review-content__text')]") %>%
+        rvest::html_text() %>%
+        str_trim(side ="both")
+    )
+    
+  }
   
   final_df <- rbind(final_df, page_df)
-  i <- i+1
+  output_file <- paste0("output/", company, "_reviews_automated.csv")
+  fwrite(final_df, file=output_file)
+  rm(final_df)
   
 }
 
+scrape_pages(num_reviews, revs_per_page, base_url, company)
 
-fwrite(final_df, file="output/plushcare_reviews.csv")
-rm(final_df)
+
+
 
 
 #### UDACITY ####
