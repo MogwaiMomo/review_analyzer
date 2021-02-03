@@ -36,7 +36,7 @@ source("scripts/sentiment_analysis.R")
 source("scripts/scraper.R")
 
 # Load the data
-f <- "output/plushcare_reviews.csv"
+f <- "output/sky_reviews_automated.csv"
 data <- fread(f)
 
 # add element_id based on rowid
