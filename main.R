@@ -34,7 +34,8 @@ source("scripts/sentiment_analysis.R")
 
 # Uncomment, edit file & scrape review sites
 source("scripts/scraper.R")
-
+# Scrape Udacity
+source("scripts/udacity.R")
 # Load the data
 f <- "output/sky_reviews_automated.csv"
 data <- fread(f)
