@@ -31,11 +31,11 @@ source("scripts/tidy_tokens.R")
 source("scripts/sentiment_analysis.R")
 
 
-
 # Uncomment, edit file & scrape review sites
-source("scripts/scraper.R")
+source("scripts/scrapers/scraper.R")
 # Scrape Udacity
-source("scripts/udacity.R")
+source("scripts/scrapers/udacity.R")
+
 # Load the data
 f <- "output/sky_reviews_automated.csv"
 data <- fread(f)

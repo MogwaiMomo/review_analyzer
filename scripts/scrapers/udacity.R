@@ -1,3 +1,5 @@
+library(rvest)
+
 #### UDACITY ####
 
 # client page to try to scrape 
@@ -14,12 +16,12 @@ cards <- body_nodes %>%
 page_df <- tibble::tibble(
   
   product_name = cards %>% 
-    xml_find_first(".//h2[contains(@class, 'card__title__nd-name')]") %>%
+    xml2::xml_find_first(".//h2") %>%
     rvest::html_text() %>%
     str_trim(side ="both"),
   
   school_name = cards %>% 
-    xml2::xml_find_first(".//h3[contains(@class, 'card__title__school')]") %>%
+    xml2::xml_find_first(".//h3") %>%
     rvest::html_text() %>%
     str_trim(side ="both"),
   
@@ -46,4 +48,4 @@ page_df <- tibble::tibble(
 )
 
 
-fwrite(page_df, file="output/udacity-catalog-2.csv")
+fwrite(page_df, file="output/udacity-catalog-3.csv")
