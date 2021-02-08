@@ -71,9 +71,9 @@ scrape_pages <- function(total_reviews,
 }
 
 #### RUN IT ####
-base_url <- "https://ca.trustpilot.com/review/www.sky.com?page=%s"
-company <- "sky"
-total_reviews <- 1000
+base_url <- "https://ca.trustpilot.com/review/www.plushcare.com?page=%s"
+company <- "plushcare"
+total_reviews <- 751
 
 revs_per_page <- 20
 review_xpath <- ".//div[contains(@class, 'review-card  ')]"

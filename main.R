@@ -32,12 +32,12 @@ source("scripts/sentiment_analysis.R")
 
 
 # Uncomment, edit file & scrape review sites
-source("scripts/scrapers/scraper.R")
+source("scripts/scrapers/general_scraper.R")
 # Scrape Udacity
 source("scripts/scrapers/udacity.R")
 
 # Load the data
-f <- "output/sky_reviews_automated.csv"
+f <- "output/plushcare_reviews_automated.csv"
 data <- fread(f)
 
 # add element_id based on rowid
@@ -93,43 +93,27 @@ sent_df <- subset(sent_df, !duplicated(
 
 # First: how is the word count distributed? 
 
-# before checking analysis, remove low word-count reviews
-
 summary(sent_df) 
 
-# Median is 43 words. Note that the variation in word count of the first ,second and 3rd quantiles are pretty equal, and then the variation of the last quantile is super high, which would contribute to high skewing on the right. 
+# Median is 30 words. Note that the variation in word count of the first ,second and 3rd quantiles are pretty equal, and then the variation of the last quantile is super high, which would contribute to high skewing on the right. 
 
 # let's split up the sample into separate quantile_dfs and run topic analysis on them ...
 
-quantile1_df <- sent_df %>%
-  filter(word_count < 15) %>%
-  select("doc ID" = element_id, text) %>%
-  mutate(label = NA)
-quantile1_df <- quantile1_df[,c(1,3,2)] %>%
-  fwrite("output/plushcare_q1.csv")
+split_by_star <- function(df, rat) {
+  output_file <- paste0("output/", rat, "_star.tsv")
+  rat <- as.numeric(rat)
+  
+  rating_df <- df %>%
+    filter(rating == rat) %>%
+    select("doc ID" = element_id, text) %>%
+    mutate(label = NA)
+  rating_df <- rating_df[,c(1,3,2)] %>%
+    fwrite(output_file, sep = "\t")
+}
 
-quantile2_df <- sent_df %>%
-  filter(word_count >= 15 & word_count < 31) %>%
-  select("doc ID" = element_id, text) %>%
-  mutate(label = NA)
-quantile2_df <- quantile2_df[,c(1,3,2)] %>%
-  fwrite("output/plushcare_q2.csv")
-
-quantile3_df <- sent_df %>%
-  filter(word_count >= 31 & word_count < 61) %>%
-  select("doc ID" = element_id, text) %>%
-  mutate(label = NA)
-quantile1_df <- quantile3_df[,c(1,3,2)] %>%
-  fwrite("output/plushcare_q3.csv")
-
-quantile4_df <- sent_df %>%
-  filter(word_count >= 61)  %>%
-  select("doc ID" = element_id, text) %>%
-  mutate(label = NA)
-quantile4_df <- quantile4_df[,c(1,3,2)] %>%
-  fwrite("output/plushcare_q4.tsv", sep = "\t")
-
-
+for (i in 1:5) {
+  split_by_star(sent_df, i)
+}
 
 # NEXT STOP: try unsupervised text clustering
 
@@ -147,14 +131,11 @@ plot_quants("output/plushcare_corrs.png",df)
 
 # can rating & word count predict sentiment? (use linear regression with dummy variables)
 
-<<<<<<< HEAD
-plot_quants("output/bitdefender_corrs.png",df)
-=======
+
 lm.fit <- lm(ave_sentiment ~ word_count + rating, data = sent_df)
 summary(lm.fit)
 
 # according to this model, word count & particularly low & high ratings (1, 4, 5) predict sentiment scores. Word count has a slightly negative relationship, ratings has a positive relationship.
->>>>>>> scrape-plushcare
 
 # Note that the Rsquared value is low, meaning that this model doesn't account for much of the variation in the sample. So it's not a great fit. 
 
@@ -188,13 +169,9 @@ run_residual_plots <- function(fit_var, output_file) {
   
   # 3. How well does the model fit the data?
   
-  # 4. Given a set of predictor values, what response value should we predict,
-and how accurate is our prediction?
+  # 4. Given a set of predictor values, what response value should we predict,and how accurate is our prediction?
 
-<<<<<<< HEAD
-# 3) rating (discrete ordinal) ~ word count (continuous) 
-  # test: classification - K nearest neighbour
-=======
+
 # Plot 1: Residuals vs. Fitted
 # Look for a random, even cloud. If you see curves, this indicates a non-linear relationship between predictor & outcome. Likely a transformation (start with Log) may be required. Clustering indicates a missing variable. 
 # Try  log transformation (of both the predictor and the response) to remove curve & clustering
@@ -203,7 +180,6 @@ and how accurate is our prediction?
 log.lm.fit <- lm(ave_sentiment ~ log(word_count) + rating, 
                  data = sent_df)
 summary(log.lm.fit)
-run_residual_plots(log.lm.fit, "output/plushcare_res.png")
 
 # need to omit rows with ave_sentiment = 0 before doing a log transform on it. (How many are there?)
 
@@ -215,7 +191,6 @@ sent_df_no_zeros <- sent_df %>%
 log.lm.fit <- lm(ave_sentiment ~ log(word_count) + rating, 
                  data = sent_df)
 summary(log.lm.fit)
-run_residual_plots(log.lm.fit, "output/plushcare_res.png")
 
 # Plot 2: Normal Q-Q Plot
 # If things generally follow a straight line with higher density in the middle, that's good. you may see outliers that have high leverage. This is comparing the distribution of your residuals (which should be normal) to the residuals of a theoretical (normal sample). S-shaped curves denote extreme values/higher than normal variance, and concave/convex curves denote skewed distributions. 
@@ -231,4 +206,3 @@ run_residual_plots(log.lm.fit, "output/plushcare_res.png")
 
 
 
->>>>>>> scrape-plushcare
