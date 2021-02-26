@@ -37,7 +37,7 @@ source("scripts/scrapers/general_scraper.R")
 source("scripts/scrapers/udacity.R")
 
 # Load the data
-f <- "output/plushcare_reviews_automated.csv"
+f <- "output/semrush_reviews_trustpilot.csv"
 data <- fread(f)
 
 # add element_id based on rowid
