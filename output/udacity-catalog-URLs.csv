@@ -1,0 +1,254 @@
+product_name,school_name,url
+Data Engineer,School of Data Science,/course/data-engineer-nanodegree--nd027
+Digital Marketing,School of Business,/course/digital-marketing-nanodegree--nd018
+Introduction to Programming,School of Programming & Development,/course/intro-to-programming-nanodegree--nd000
+Business Analytics,School of Business,/course/business-analytics-nanodegree--nd098
+Data Scientist,School of Data Science,/course/data-scientist-nanodegree--nd025
+Programming for Data Science with Python,School of Data Science,/course/programming-for-data-science-nanodegree--nd104
+Data Analyst,School of Data Science,/course/data-analyst-nanodegree--nd002
+Product Manager,School of Business,/course/product-manager-nanodegree--nd036
+UX Designer,School of Business,/course/ux-designer-nanodegree--nd578
+Front End Web Developer,School of Programming & Development,/course/front-end-web-developer-nanodegree--nd0011
+Artificial Intelligence for Trading,School of Artificial Intelligence,/course/ai-for-trading--nd880
+AI Programming with Python,School of Artificial Intelligence,/course/ai-programming-python-nanodegree--nd089
+Machine Learning Engineer,School of Artificial Intelligence,/course/machine-learning-engineer-nanodegree--nd009t
+Full Stack Web Developer,School of Programming & Development,/course/full-stack-web-developer-nanodegree--nd0044
+Deep Learning,School of Artificial Intelligence,/course/deep-learning-nanodegree--nd101
+Self Driving Car Engineer,School of Autonomous Systems,/course/self-driving-car-engineer-nanodegree--nd013
+C++,School of Autonomous Systems,/course/c-plus-plus-nanodegree--nd213
+Data Structures and Algorithms,School of Programming & Development,/course/data-structures-and-algorithms-nanodegree--nd256
+Data Product Manager,School of Business,/course/data-product-manager-nanodegree--nd030
+SQL,School of Data Science,/course/learn-sql--nd072
+Java Developer,School of Programming & Development,/course/java-developer-nanodegree--nd035
+Blockchain Developer,School of Programming & Development,/course/blockchain-developer-nanodegree--nd1309
+Deep Reinforcement Learning,School of Artificial Intelligence,/course/deep-reinforcement-learning-nanodegree--nd893
+iOS Developer,School of Programming & Development,/course/ios-developer-nanodegree--nd003
+Activation and Retention Strategy,School of Business,/course/activation-and-retention-strategy--nd037-2
+React,School of Programming & Development,/course/react-nanodegree--nd019
+Computer Vision,School of Artificial Intelligence,/course/computer-vision-nanodegree--nd891
+AI Product Manager,School of Artificial Intelligence,/course/ai-product-manager-nanodegree--nd088
+Robotics Software Engineer,School of Autonomous Systems,/course/robotics-software-engineer--nd209
+Cloud DevOps Engineer,School of Cloud Computing,/course/cloud-dev-ops-nanodegree--nd9991
+Data Streaming,School of Data Science,/course/data-streaming-nanodegree--nd029
+Sensor Fusion Engineer,School of Autonomous Systems,/course/sensor-fusion-engineer-nanodegree--nd313
+Cloud Developer,School of Cloud Computing,/course/cloud-developer-nanodegree--nd9990
+Monetization Strategy,School of Business,/course/monetization-strategy--nd037-3
+Intro to Self-Driving Cars,School of Autonomous Systems,/course/intro-to-self-driving-cars--nd113
+Intro to Machine Learning with PyTorch,School of Artificial Intelligence,/course/intro-to-machine-learning-nanodegree--nd229
+Artificial Intelligence,School of Artificial Intelligence,/course/ai-artificial-intelligence-nanodegree--nd898
+AWS Cloud Architect,School of Cloud Computing,/course/aws-cloud-architect-nanodegree--nd063
+Marketing Analytics,School of Business,/course/marketing-analytics-nanodegree--nd028
+Intro to Machine Learning with TensorFlow,School of Artificial Intelligence,/course/intro-to-machine-learning-with-tensorflow-nanodegree--nd230
+Intermediate JavaScript,School of Programming & Development,/course/intermediate-javascript-nanodegree--nd032
+Agile Software Development,School of Business,/course/agile-software-development-nanodegree--nd144
+Predictive Analytics For Business,School of Business,/course/predictive-analytics-for-business-nanodegree--nd008
+Natural Language Processing,School of Artificial Intelligence,/course/natural-language-processing-nanodegree--nd892
+Cloud DevOps using Microsoft Azure,School of Cloud Computing,/course/cloud-devops-using-microsoft-azure-nanodegree--nd082
+AI for Healthcare,School of Artificial Intelligence,/course/ai-for-healthcare-nanodegree--nd320
+Introduction to Cybersecurity,School of Programming & Development,/course/intro-to-cybersecurity-nanodegree--nd545
+Android Basics,School of Programming & Development,/course/android-basics-nanodegree-by-google--nd803
+Data Visualization,School of Data Science,/course/data-visualization-nanodegree--nd197
+AI for Business Leaders,School of Business,/course/ai-for-business-leaders--nd054
+Flying Car and Autonomous Flight Engineer,School of Autonomous Systems,/course/flying-car-nanodegree--nd787
+Data Science for Business Leaders,School of Business,/course/data-science-for-business-leaders--nd045
+Programming for Data Science with R,School of Data Science,/course/programming-for-data-science-nanodegree-with-R--nd118
+Intel® Edge AI for IoT Developers,School of Artificial Intelligence,/course/intel-edge-ai-for-iot-developers-nanodegree--nd131
+Growth Product Manager,School of Business,/course/growth-product-manager-nanodegree--nd037
+Security Engineer,School of Programming & Development,/course/security-engineer-nanodegree--nd698
+Security Analyst,School of Programming & Development,/course/security-analyst-nanodegree--nd324
+Java Programming,School of Programming & Development,/course/java-programming-nanodegree--nd079
+Intermediate Python,School of Programming & Development,/course/intermediate-python-nanodegree--nd303
+Android Kotlin Developer,School of Programming & Development,/course/android-kotlin-developer-nanodegree--nd940
+RPA Developer with UiPath,School of Programming & Development,/course/rpa-developer-nanodegree--nd340
+Data Architect,School of Data Science,/course/data-architect-nanodegree--nd038
+Hybrid Cloud Engineer,School of Cloud Computing,/course/hybrid-cloud-engineer-nanodegree--nd321
+Cloud Developer using Microsoft Azure,School of Cloud Computing,/course/cloud-developer-using-microsoft-azure-nanodegree--nd081
+Machine Learning Engineer for Microsoft Azure,School of Artificial Intelligence,/course/machine-learning-engineer-for-microsoft-azure-nanodegree--nd00333
+Microsoft Power Platform,School of Programming & Development,/course/microsoft-power-platform--ud091
+Web Tooling & Automation,School of Programming & Development,/course/web-tooling-automation--ud892
+Front End Frameworks,School of Programming & Development,/course/front-end-frameworks--ud894
+Responsive Web Design Fundamentals,School of Programming & Development,/course/responsive-web-design-fundamentals--ud893
+Linux Command Line Basics,School of Programming & Development,/course/linux-command-line-basics--ud595
+How to Install Android Studio,School of Programming & Development,/course/how-to-install-android-studio--ud808
+Android Basics: Multiscreen Apps,School of Programming & Development,/course/android-basics-multiscreen-apps--ud839
+Website Performance Optimization,School of Programming & Development,/course/website-performance-optimization--ud884
+iOS Networking with Swift,School of Programming & Development,/course/ios-networking-with-swift--ud421
+JavaScript Design Patterns,School of Programming & Development,/course/javascript-design-patterns--ud989
+Android Basics: User Input,School of Programming & Development,/course/android-basics-user-input--ud836
+Android Performance,School of Programming & Development,/course/android-performance--ud825
+Responsive Images,School of Programming & Development,/course/responsive-images--ud882
+Xcode Debugging,School of Programming & Development,/course/xcode-debugging--ud774
+Gradle for Android and Java,School of Programming & Development,/course/gradle-for-android-and-java--ud867
+Build Native Mobile Apps with Flutter,School of Programming & Development,/course/build-native-mobile-apps-with-flutter--ud905
+JavaScript Promises,School of Programming & Development,/course/javascript-promises--ud898
+UIKit Fundamentals,School of Programming & Development,/course/uikit-fundamentals--ud788
+Android Basics: User Interface,School of Programming & Development,/course/android-basics-user-interface--ud834
+Client-Server Communication,School of Programming & Development,/course/client-server-communication--ud897
+What is Programming?,School of Programming & Development,/course/what-is-programming--ud994
+Building High Conversion Web Forms,School of Programming & Development,/course/building-high-conversion-web-forms--ud890
+Advanced Android App Development,School of Programming & Development,/course/advanced-android-app-development--ud855
+Software Architecture & Design,School of Programming & Development,/course/software-architecture-design--ud821
+Intro to Information Security,School of Programming & Development,/course/intro-to-information-security--ud459
+Authentication & Authorization: OAuth,School of Programming & Development,/course/authentication-authorization-oauth--ud330
+Intro to iOS App Development with Swift,School of Programming & Development,/course/intro-to-ios-app-development-with-swift--ud585
+Introduction to Operating Systems,School of Programming & Development,/course/introduction-to-operating-systems--ud923
+Android Basics: Networking,School of Programming & Development,/course/android-basics-networking--ud843
+Web Accessibility,School of Programming & Development,/course/web-accessibility--ud891
+Android Basics: Data Storage,School of Programming & Development,/course/android-basics-data-storage--ud845
+Scalable Microservices with Kubernetes,School of Programming & Development,/course/scalable-microservices-with-kubernetes--ud615
+Developing Android Apps with Kotlin,School of Programming & Development,/course/developing-android-apps-with-kotlin--ud9012
+Browser Rendering Optimization,School of Programming & Development,/course/browser-rendering-optimization--ud860
+Learn Swift Programming Syntax,School of Programming & Development,/course/learn-swift-programming-syntax--ud902
+Offline Web Applications,School of Programming & Development,/course/offline-web-applications--ud899
+Kotlin for Android Developers,School of Programming & Development,/course/kotlin-for-android-developers--ud888
+UX Design for Mobile Developers,School of Programming & Development,/course/ux-design-for-mobile-developers--ud849
+Software Development Process,School of Programming & Development,/course/software-development-process--ud805
+Data Visualization in Tableau,School of Programming & Development,/course/data-visualization-in-tableau--ud1006
+Intro to Progressive Web Apps,School of Programming & Development,/course/intro-to-progressive-web-apps--ud811
+Writing READMEs,School of Programming & Development,/course/writing-readmes--ud777
+Software Analysis & Testing,School of Programming & Development,/course/software-analysis-testing--ud333
+iOS Persistence and Core Data,School of Programming & Development,/course/ios-persistence-and-core-data--ud325
+Computer Networking,School of Programming & Development,/course/computer-networking--ud436
+Firebase Analytics: iOS,School of Programming & Development,/course/firebase-analytics-ios--ud353
+Human-Computer Interaction,School of Programming & Development,/course/human-computer-interaction--ud400
+2D Game Development with libGDX,School of Programming & Development,/course/2d-game-development-with-libgdx--ud405
+Intro to jQuery,School of Programming & Development,/course/intro-to-jquery--ud245
+Cyber-Physical Systems Security,School of Programming & Development,/course/cyber-physical-systems-security--ud279
+Introduction to Graduate Algorithms,School of Programming & Development,/course/introduction-to-graduate-algorithms--ud401
+Dynamic Web Applications with Sinatra,School of Programming & Development,/course/dynamic-web-applications-with-sinatra--ud268
+How to Make a Platformer Using libGDX,School of Programming & Development,/course/how-to-make-a-platformer-using-libgdx--ud406
+JavaScript Testing,School of Programming & Development,/course/javascript-testing--ud549
+Object-Oriented JavaScript,School of Programming & Development,/course/object-oriented-javascript--ud711
+Localization Essentials,School of Programming & Development,/course/localization-essentials--ud610
+Compilers: Theory and Practice,School of Programming & Development,/course/compilers-theory-and-practice--ud168
+HTML5 Canvas,School of Programming & Development,/course/html5-canvas--ud292
+Object Oriented Programming in Java,School of Programming & Development,/course/object-oriented-programming-in-java--ud283
+Designing RESTful APIs,School of Programming & Development,/course/designing-restful-apis--ud388
+GT - Refresher - Advanced OS,School of Programming & Development,/course/gt-refresher-advanced-os--ud098
+Intro to JavaScript,School of Programming & Development,/course/intro-to-javascript--ud803
+Grand Central Dispatch (GCD),School of Programming & Development,/course/grand-central-dispatch-gcd--ud576
+Swift for Beginners,School of Programming & Development,/course/swift-for-beginners--ud1022
+Intro to Statistics,School of Programming & Development,/course/intro-to-statistics--st101
+Intro to HTML and CSS,School of Programming & Development,/course/intro-to-html-and-css--ud001
+Developing Android Apps,School of Programming & Development,/course/new-android-fundamentals--ud851
+Introduction to Python Programming,School of Programming & Development,/course/introduction-to-python--ud1110
+Introduction to Virtual Reality,School of Programming & Development,/course/introduction-to-virtual-reality--ud1012
+Objective-C for Swift Developers,School of Programming & Development,/course/objective-c-for-swift-developers--ud1009
+Software Testing,School of Programming & Development,/course/software-testing--cs258
+Interactive 3D Graphics,School of Programming & Development,/course/interactive-3d-graphics--cs291
+Full Stack Foundations,School of Programming & Development,/course/full-stack-foundations--ud088
+High Performance Computer Architecture,School of Programming & Development,/course/high-performance-computer-architecture--ud007
+AutoLayout,School of Programming & Development,/course/auto-layout--ud1026
+Kotlin Bootcamp for Programmers,School of Programming & Development,/course/kotlin-bootcamp-for-programmers--ud9011
+Shell Workshop,School of Programming & Development,/course/shell-workshop--ud206
+Core ML: Machine Learning for iOS,School of Programming & Development,/course/core-ml--ud1038
+Statistics,School of Programming & Development,/course/statistics--st095
+Intro to Theoretical Computer Science,School of Programming & Development,/course/intro-to-theoretical-computer-science--cs313
+Design of Computer Programs,School of Programming & Development,/course/design-of-computer-programs--cs212
+Data Wrangling with MongoDB,School of Programming & Development,/course/data-wrangling-with-mongodb--ud032
+Swift for Developers,School of Programming & Development,/course/swift-for-developers--ud1025
+Firebase in a Weekend: Android,School of Programming & Development,/course/firebase-in-a-weekend-by-google-android--ud0352
+Software Debugging,School of Programming & Development,/course/software-debugging--cs259
+Deploying a Hadoop Cluster,School of Programming & Development,/course/deploying-a-hadoop-cluster--ud1000
+Server-Side Swift,School of Programming & Development,/course/server-side-swift--ud1031
+Programming Languages,School of Programming & Development,/course/programming-languages--cs262
+Networking for Web Developers,School of Programming & Development,/course/networking-for-web-developers--ud256
+Database Systems Concepts & Design,School of Autonomous Systems,/course/database-systems-concepts-design--ud150
+Intro to Physics,School of Programming & Development,/course/intro-to-physics--ph100
+Intro to Relational Databases,School of Programming & Development,/course/intro-to-relational-databases--ud197
+ES6 - JavaScript Improved,School of Programming & Development,/course/es6-javascript-improved--ud356
+Mobile Design and Usability for iOS,School of Programming & Development,/course/mobile-design-and-usability-for-ios--ud1034
+Intro to AJAX,School of Programming & Development,/course/intro-to-ajax--ud110
+Intro to Algorithms,School of Programming & Development,/course/intro-to-algorithms--cs215
+The MVC Pattern in Ruby,School of Programming & Development,/course/the-mvc-pattern-in-ruby--ud270
+WeChat Mini Program Development,School of Programming & Development,/course/wechat-mini-programs--ud667
+Asynchronous JavaScript Requests,School of Programming & Development,/course/asynchronous-javascript-requests--ud109
+Embedded Systems,School of Programming & Development,/course/embedded-systems--ud169
+High Performance Computing,School of Programming & Development,/course/high-performance-computing--ud281
+HTTP & Web Servers,School of Programming & Development,/course/http-web-servers--ud303
+Advanced Android with Kotlin,School of Programming & Development,/course/advanced-android-with-kotlin--ud940
+"Computability, Complexity & Algorithms",School of Programming & Development,/course/computability-complexity-algorithms--ud061
+Advanced Operating Systems,School of Programming & Development,/course/advanced-operating-systems--ud189
+Passwordless Login Solutions for iOS,School of Programming & Development,/course/passwordless-login-solutions-for-ios--ud1028
+Version Control with Git,School of Programming & Development,/course/version-control-with-git--ud123
+Firebase in a Weekend: iOS,School of Programming & Development,/course/firebase-in-a-weekend-by-google-ios--ud0351
+Intro to Point & Click App Development,School of Programming & Development,/course/intro-to-point-click-app-development--ud162
+Deploying Applications with Heroku,School of Programming & Development,/course/deploying-applications-with-heroku--ud272
+Applied Cryptography,School of Programming & Development,/course/applied-cryptography--cs387
+Java Programming Basics,School of Programming & Development,/course/java-programming-basics--ud282
+C++ For Programmers,School of Programming & Development,/course/c-for-programmers--ud210
+Intro to Backend,School of Programming & Development,/course/intro-to-backend--ud171
+Network Security,School of Programming & Development,/course/network-security--ud199
+JavaScript and the DOM,School of Programming & Development,/course/javascript-and-the-dom--ud117
+Firebase Analytics: Android,School of Programming & Development,/course/firebase-analytics-android--ud354
+Configuring Linux Web Servers,School of Programming & Development,/course/configuring-linux-web-servers--ud299
+How to Make an iOS App,School of Programming & Development,/course/how-to-make-an-ios-app--ud607
+Intro to DevOps,School of Programming & Development,/course/intro-to-devops--ud611
+Google Maps APIs,School of Programming & Development,/course/google-maps-apis--ud864
+Passwordless Login Solutions for Android,School of Programming & Development,/course/passwordless-login-solutions-for-android--ud357
+Mobile Design and Usability for Android,School of Programming & Development,/course/mobile-design-and-usability-for-android--ud358
+Intro to Psychology,School of Programming & Development,/course/intro-to-psychology--ps001
+Engagement & Monetization | Mobile Games,School of Programming & Development,/course/engagement-monetization-mobile-games--ud407
+Material Design for Android Developers,School of Programming & Development,/course/material-design-for-android-developers--ud862
+Intro to Data Science,School of Data Science,/course/intro-to-data-science--ud359
+Intro to Data Analysis,School of Data Science,/course/intro-to-data-analysis--ud170
+SQL for Data Analysis,School of Data Science,/course/sql-for-data-analysis--ud198
+Intro to Inferential Statistics,School of Data Science,/course/intro-to-inferential-statistics--ud201
+Spark,School of Data Science,/course/learn-spark-at-udacity--ud2002
+Data Analysis and Visualization,School of Data Science,/course/data-analysis-and-visualization--ud404
+Rapid Prototyping,School of Business,/course/rapid-prototyping--ud723
+Creating an Analytical Dataset,School of Business,/course/creating-an-analytical-dataset--ud977
+Problem Solving with Advanced Analytics,School of Business,/course/problem-solving-with-advanced-analytics--ud976
+Classification Models,School of Business,/course/classification-models--ud978
+Product Design,School of Business,/course/product-design--ud509
+Segmentation and Clustering,School of Business,/course/segmentation-and-clustering--ud981
+Time Series Forecasting,School of Business,/course/time-series-forecasting--ud980
+App Marketing,School of Business,/course/app-marketing--ud719
+App Monetization,School of Business,/course/app-monetization--ud518
+A/B Testing for Business Analysts,School of Business,/course/ab-testing--ud979
+How to Build a Startup,School of Business,/course/how-to-build-a-startup--ep245
+Get Your Startup Started,School of Business,/course/get-your-startup-started--ud806
+Managing Remote Teams with Upwork,School of Business,/course/managing-remote-teams-with-upwork--ud942
+Hybrid Cloud Fundamentals,School of Cloud Computing,/course/hybrid-cloud-fundamentals--ud0321
+Intro to Cloud Computing,School of Cloud Computing,/course/intro-to-cloud-computing--ud080
+Cyber-Physical Systems Design & Analysis,School of Autonomous Systems,/course/cyber-physical-systems-design-analysis--ud9876
+Differential Equations in Action,School of Autonomous Systems,/course/differential-equations-in-action--cs222
+Self-Driving Fundamentals: Featuring Apollo,School of Autonomous Systems,/course/self-driving-car-fundamentals-featuring-apollo--ud0419
+Linear Algebra Refresher Course,School of Artificial Intelligence,/course/linear-algebra-refresher-course--ud953
+Machine Learning: Unsupervised Learning,School of Artificial Intelligence,/course/machine-learning-unsupervised-learning--ud741
+Big Data Analytics in Healthcare,School of Artificial Intelligence,/course/big-data-analytics-in-healthcare--ud758
+Intro to Descriptive Statistics,School of Artificial Intelligence,/course/intro-to-descriptive-statistics--ud827
+Intel® Edge AI Fundamentals with OpenVINO™,School of Artificial Intelligence,/course/intel-edge-AI-fundamentals-with-openvino--ud132
+Artificial Intelligence,School of Artificial Intelligence,/course/artificial-intelligence--ud954
+Secure and Private AI,School of Artificial Intelligence,/course/secure-and-private-ai--ud185
+Model Building and Validation,School of Artificial Intelligence,/course/model-building-and-validation--ud919
+Data Visualization and D3.js,School of Artificial Intelligence,/course/data-visualization-and-d3js--ud507
+Machine Learning for Trading,School of Artificial Intelligence,/course/machine-learning-for-trading--ud501
+Machine Learning,School of Artificial Intelligence,/course/machine-learning--ud262
+Intro to Hadoop and MapReduce,School of Artificial Intelligence,/course/intro-to-hadoop-and-mapreduce--ud617
+Real-Time Analytics with Apache Storm,School of Artificial Intelligence,/course/real-time-analytics-with-apache-storm--ud381
+A/B Testing,School of Artificial Intelligence,/course/ab-testing--ud257
+Data Analysis with R,School of Artificial Intelligence,/course/data-analysis-with-r--ud651
+Knowledge-Based AI: Cognitive Systems,School of Artificial Intelligence,/course/knowledge-based-ai-cognitive-systems--ud409
+Introduction to TensorFlow Lite,School of Artificial Intelligence,/course/intro-to-tensorflow-lite--ud190
+Introduction to Computer Vision,School of Artificial Intelligence,/course/introduction-to-computer-vision--ud810
+Intro to TensorFlow for Deep Learning,School of Artificial Intelligence,/course/intro-to-tensorflow-for-deep-learning--ud187
+Eigenvectors and Eigenvalues,School of Artificial Intelligence,/course/eigenvectors-and-eigenvalues--ud104
+Intro to Artificial Intelligence,School of Artificial Intelligence,/course/intro-to-artificial-intelligence--cs271
+Artificial Intelligence for Robotics,School of Artificial Intelligence,/course/artificial-intelligence-for-robotics--cs373
+Intro to Deep Learning with PyTorch,School of Artificial Intelligence,/course/deep-learning-pytorch--ud188
+AWS DeepRacer,School of Artificial Intelligence,/course/aws-deepracer--ud014
+Reinforcement Learning,School of Artificial Intelligence,/course/reinforcement-learning--ud600
+Introduction to Machine Learning Course,School of Artificial Intelligence,/course/intro-to-machine-learning--ud120
+Craft Your Cover Letter,Career Advancement,/course/craft-your-cover-letter--ud244
+Refresh Your Resume,Career Advancement,/course/refresh-your-resume--ud243
+Strengthen Your LinkedIn Network & Brand,Career Advancement,/course/strengthen-your-linkedin-network-and-brand--ud242
+Data Science Interview Prep,Career Advancement,/course/data-science-interview-prep--ud944
+Android Interview Prep,Career Advancement,/course/android-interview-prep--ud241
+Machine Learning Interview Preparation,Career Advancement,/course/machine-learning-interview-prep--ud1001
+Front-End Interview Prep,Career Advancement,/course/front-end-interview-prep--ud250
+Full-Stack Interview Prep,Career Advancement,/course/full-stack-interview-prep--ud252
+Data Structures & Algorithms in Swift,Career Advancement,/course/data-structures-and-algorithms-in-swift--ud1011
+iOS Interview Prep,Career Advancement,/course/ios-interview-prep--ud240
+VR Interview Prep,Career Advancement,/course/vr-interview-prep--ud251
+Product Manager Interview Preparation,Career Advancement,/course/product-manager-interview-preparation--ud034
