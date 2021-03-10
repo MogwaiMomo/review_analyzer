@@ -36,8 +36,16 @@ source("scripts/sentiment_analysis.R")
 source("scripts/scraper.R")
 
 # Load the data
-f <- "output/plushcare_reviews.csv"
+f <- "data/udacity_skills.csv"
 data <- fread(f)
+
+skill_list <- data %>%
+  select(skills)
+
+str_split(skill_list, ", ", simplify=TRUE)
+
+
+
 
 # add element_id based on rowid
 data <- create_id_var(data)
